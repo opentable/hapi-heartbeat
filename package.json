@@ -1,25 +1,25 @@
 {
-  "name": "hapi-lbstatus",
-  "version": "2.1.0",
-  "description": "lbstatus plugin for hapi",
+  "name": "hapi-heartbeat",
+  "version": "0.0.1",
+  "description": "heartbeat plugin for hapi",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:opentable/hapi-lbstatus.git"
+    "url": "git@github.com:opentable/hapi-heartbeat.git"
   },
   "keywords": [
     "hapi",
     "hapiplugin"
   ],
-  "author": "Andy Royle <ajroyle@gmail.com>",
+  "author": "Ryan Tomlinson <tomlinsonryan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/opentable/hapi-lbstatus/issues"
+    "url": "https://github.com/opentable/hapi-heartbeat/issues"
   },
-  "homepage": "https://github.com/opentable/hapi-lbstatus",
+  "homepage": "https://github.com/opentable/hapi-heartbeat",
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-cli": "^0.1.13",
