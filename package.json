@@ -1,6 +1,6 @@
 {
   "name": "hapi-heartbeat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "heartbeat plugin for hapi",
   "main": "index.js",
   "scripts": {
