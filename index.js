@@ -7,7 +7,7 @@ exports.register = function(plugin, options, next){
             path: "/heartbeat",
             config: {
                 handler: function(request, reply) {
-                    service.lbstatus(plugin.servers, options, function(result){
+                    service.heartbeat(plugin.servers, options, function(result){
                         reply().code(result.code);
                     });
                 }
