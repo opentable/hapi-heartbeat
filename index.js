@@ -4,7 +4,7 @@ exports.register = function(plugin, options, next){
     plugin.route(
         {
             method: "GET",
-            path: options.route,
+            path: options.route || '/heartbeat',
             config: {
                 handler: function(request, reply) {
                     service.heartbeat(plugin.servers, options, function(result){

@@ -16,7 +16,7 @@ var server = hapi.createServer();
 server.pack.require("hapi-heartbeat",
   {
     liveness: '/my/api/123',
-    route: '/heartbeat'
+    route: '/heartbeat' (optional: default to /heartbeat)
     headers: {
     // optional headers to apply when making the liveness check
       'accept-language': 'en-US'
