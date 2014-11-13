@@ -22,8 +22,20 @@ describe('heartbeat tests', function(){
                   r.push(route);
               }
             };
+        p.register(plugin, { route: '/heartbeat' }, function(){});
+        r.length.should.eql(1);
+        r[0].path.should.eql('/heartbeat');
+    });
 
-        p.register(plugin, {}, function(){});
+    it('should register the route /heartbeat if non specified', function(){
+        var p = require('../index.js'),
+            r = [],
+            plugin = {
+              route: function(route) {
+                  r.push(route);
+              }
+            };
+        p.register(plugin, {  }, function(){});
         r.length.should.eql(1);
         r[0].path.should.eql('/heartbeat');
     });
@@ -31,6 +43,7 @@ describe('heartbeat tests', function(){
     it('should return 503 when the liveness check fails', function(done){
         provider.heartbeat(badservers, {
             liveness: '/my/app/123',
+            route: '/heartbeat'
         }, function(result){
             result.code.should.eql(503);
             done();
