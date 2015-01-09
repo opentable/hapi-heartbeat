@@ -1,18 +1,18 @@
 describe('heartbeat tests', function(){
     var should = require('should'),
         provider = require('../lib/provider'),
-        servers = [{
+        server = {
             inject: function(options, callback){
                 callback({ statusCode: 200 });
             },
             log: function(){}
-        }],
-        badservers = [{
+        },
+        badserver = {
             inject: function(options, callback){
                 callback({ statusCode: 500 });
             },
             log: function(){}
-        }];
+        };
 
     it('should register the route', function(){
         var p = require('../index.js'),
@@ -40,12 +40,12 @@ describe('heartbeat tests', function(){
         r[0].path.should.eql('/heartbeat');
     });
 
-    it('should return 503 when the liveness check fails', function(done){
-        provider.heartbeat(badservers, {
+    it('should return false when the liveness check fails', function(done){
+        provider.heartbeat(badserver, {
             liveness: '/my/app/123',
             route: '/heartbeat'
         }, function(result){
-            result.code.should.eql(503);
+            result.should.eql(false);
             done();
         });
     });

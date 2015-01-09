@@ -7,8 +7,8 @@ exports.register = function(plugin, options, next){
             path: options.route || '/heartbeat',
             config: {
                 handler: function(request, reply) {
-                    service.heartbeat(plugin.servers, options, function(result){
-                        reply().code(result.code);
+                    service.heartbeat(request.server, options, function(isalive){
+                        reply().code(isalive ? 200 : 503);
                     });
                 }
             }
