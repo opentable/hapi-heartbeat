@@ -8,7 +8,7 @@ exports.register = function(plugin, options, next){
             config: {
                 handler: function(request, reply) {
                     service.heartbeat(request.server, options, function(isalive){
-                        reply().code(isalive ? 200 : 503);
+                        reply().code(isalive ? 200 : 503).type(options.contentType);
                     });
                 }
             }
