@@ -15,6 +15,7 @@ var server = hapi.createServer();
 
 server.pack.require("hapi-heartbeat",
   {
+    contentType: 'text/html',  // sets 'content-type' response header; optional (none by default)
     liveness: '/my/api/123',
     route: '/heartbeat' (optional: default to /heartbeat)
     headers: {
